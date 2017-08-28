@@ -7,7 +7,7 @@ def api():
     if request.headers['Content-Type'] == 'text/plain':
         from rivescript import RiveScript
         bot = RiveScript()
-        bot.load_directory("C:\\Users\\staml\\Desktop\\rivescript-p\\eg\\brain")
+        bot.load_directory("C:\\eg\\brain")
         bot.sort_replies()
         msg = request.data[0]
         if msg == '/quit':
@@ -20,7 +20,7 @@ def api():
     elif request.headers['Content-Type'] == 'application/json':
         from rivescript import RiveScript
         bot = RiveScript()
-        bot.load_directory("C:\\Users\\staml\\Desktop\\rivescript-p\\eg\\brain")
+        bot.load_directory("C:\\eg\\brain")
         bot.sort_replies()
         msg = request.json['message']
         if msg == '/quit':

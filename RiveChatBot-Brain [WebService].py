@@ -1,14 +1,16 @@
 from flask import json
 from flask import Flask, request 
 app = Flask(__name__)
-
+from rivescript import RiveScript
+bot = RiveScript()
+bot.load_directory("C:\\eg\\brain")
+bot.sort_replies()
+        
+        
 @app.route('/api', methods = ['POST'])
 def api():
     if request.headers['Content-Type'] == 'text/plain':
-        from rivescript import RiveScript
-        bot = RiveScript()
-        bot.load_directory("C:\\eg\\brain")
-        bot.sort_replies()
+        
         msg = request.data[0]
         if msg == '/quit':
             quit()
@@ -18,10 +20,10 @@ def api():
         
 
     elif request.headers['Content-Type'] == 'application/json':
-        from rivescript import RiveScript
-        bot = RiveScript()
-        bot.load_directory("C:\\eg\\brain")
-        bot.sort_replies()
+#         from rivescript import RiveScript
+#         bot = RiveScript()
+#         bot.load_directory("C:\\eg\\brain")
+#         bot.sort_replies()
         msg = request.json['message']
         if msg == '/quit':
             quit()
